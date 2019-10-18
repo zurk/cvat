@@ -138,47 +138,44 @@
             </svg>
             <input type = "range" id = "playerProgress"/>
         </div>  <!-- END of PLAYER PANEL -->
-        <div style="margin-top: 20px">
-            <button id="menuButton" class="regular h2"> Open Menu </button>
-            <label class="regular h2" style="margin-left: 50px"> Filter: </label>
-            <datalist id="filterSubmitList" style="display: none;"> </datalist>
-            <input type="text" list="filterSubmitList" id="filterInputString" class="regular h2" placeholder='car[attr/model=/"mazda"'/>
-            <button id="resetFilterButton" class="regular h2"> Reset </button>
-            <button class="regular h2" id="undoButton" disabled> &#x27F2; </button>
-            <select size="2" class="regular" style="overflow: hidden; width: 15%; top: 0.5em; position: relative;" disabled>
-                <option id="lastUndoText" title="Undo Action" selected> None </option>
-                <option id="lastRedoText" title="Redo Action"> None </option>
-            </select>
-            <button class="regular h2" id="redoButton" disabled> &#10227; </button>
-            <label class="regular h2" style="margin-left: 15px;"> Propagation </label>
-            <input type ="number" id="propagateFramesInput" style="width: 3em" min="1" max="10000" value="50" class="regular h2"/>
-            <label class="regular h2" style="margin-left: 15px;"> Rotation </label>
-            <button class="regular h2" id="clockwiseRotation" title="Clockwise rotation"> &#10227; </button>
-            <button class="regular h2" id="counterClockwiseRotation" title="Counter clockwise rotation"> &#10226; </button>
-            <div style="float: right;">
-                <label class="regular h2"> Frame </label>
-                <input class="regular h2" style="width: 3.5em;" type="number" id="frameNumber">
-            </div>
-            <hr>
-            <table class="regular" cellpadding="20">
+        <div style="margin-top: 10px">
+            <table class="regular" cellpadding="10">
                 <tr>
-                <td style="width: auto;">
-                        <div style="float: left;"> <label class="semiBold"> Fill Opacity: </label> </div>
-                        <div style="float: left; margin-left: 1em;"> <input type="range" min="-1" max="1" step="0.2" value="0" id="fillOpacityRange"/> </div>
+                    <td style="width: auto;">
+                        <button id="saveButton" class="regular semiBold h2"> Save work </button>
                     </td>
+                    <td style="width: auto;">
+                        <button class="regular h2" id="undoButton" disabled> &#x27F2; </button>
+                        <select size="2" class="regular" style="overflow: hidden; width: 200px; top: 0.5em; position: relative;" disabled>
+                            <option id="lastUndoText" title="Undo Action" selected> None </option>
+                            <option id="lastRedoText" title="Redo Action"> None </option>
+                        </select>
+                        <button class="regular h2" id="redoButton" disabled> &#10227; </button>
+                    </td>
+                    <td style="width: auto;">
+                        <div style="float: left;"> <label class="semiBold"> Fill Opacity: </label> </div>
+                        <div style="float: left; margin-left: 1em;"> <input type="range" min="-1" max="1" step="0.1" value="0.3" id="fillOpacityRange"/> </div>
+                    </td>
+                    <td style="width: auto;">
+                        <div style="float: right;">
+                            <label class="regular h2"> Frame </label>
+                            <input class="regular h2" style="width: 3.5em;" type="number" id="frameNumber">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+            <table class="regular" cellpadding="20" hidden>
+                <tr>
                     <td style="width: auto;">
                         <div style="float: left;"> <label class="semiBold"> Selected Fill Opacity: </label> </div>
-                        <div style="float: left; margin-left: 1em;"> <input type="range" min="0" max="1" value="0.2" step="0.2" id="selectedFillOpacityRange"/> </div>
-                    </td>
-                    <td style="width: auto;">
-                        <div style="float: left;"> <label class="semiBold"> Black Stroke: </label> </div>
-                        <div style="float: left; margin-left: 1em;"> <input type="checkbox" id="blackStrokeCheckbox" class="settingsBox"/> </div>
+                        <div style="float: left; margin-left: 1em;"> <input type="range" min="0" max="1" value="0.3" step="0.1" id="selectedFillOpacityRange"/> </div>
                     </td>
                     <td style="width: auto;">
                         <div style="float: left;"> <label class="semiBold"> Color by: </label> </div>
                         <div style="float: left; margin-left: 10px;">
                             <label style="margin-right: 10px;"> Instance </label>
-                            <input type="radio" name="colorByRadio" id="colorByInstanceRadio" checked class="settingsBox"/>
+                            <input type="radio" name="colorByRadio" id="colorByInstanceRadio" class="settingsBox"/>
                         </div>
                         <div style="float: left; margin-left: 10px;">
                             <label style="margin-right: 10px;"> Group </label>
@@ -186,7 +183,7 @@
                         </div>
                         <div style="float: left; margin-left: 10px;">
                             <label style="margin-right: 10px;"> Label </label>
-                            <input type="radio" name="colorByRadio" id="colorByLabelRadio" class="settingsBox"/>
+                            <input type="radio" name="colorByRadio" id="colorByLabelRadio" checked class="settingsBox"/>
                         </div>
                     </td>
                 </tr>
@@ -343,7 +340,7 @@
             <button id="fullScreenButton" class="menuButton semiBold h2"> Fullscreen Player </button>
             <button id="switchAAMButton" class="menuButton semiBold h2"> Switch AAM </button>
             <button id="helpButton" class="menuButton semiBold h2"> Help </button>
-            <button id="saveButton" class="menuButton semiBold h2"> Save Work </button>
+<!--            <button id="saveButton" class="menuButton semiBold h2"> Save Work </button>-->
             <input type="file" id="annotationFileSelector" style="display: none"/>
         </center>
         <div style="float:left; width: 70%; height: 100%; text-align: left;" class="selectable">
@@ -409,13 +406,13 @@
 
 
 <div class="tab customizedTab">
-    <button class="h2 regular activeTabButton" id="sidePanelObjectsButton" style="width: 50%">Objects</button>
-    <button class="h2 regular" id="sidePanelLabelsButton" style="width: 50%">Labels</button>
+    <button class="h2 regular activeTabButton" id="sidePanelObjectsButton" style="width: 50%">Рамки</button>
+    <button class="h2 regular" id="sidePanelLabelsButton" style="width: 50%">Люди</button>
 </div>
 <div id="taskAnnotationRightPanel">
     <div id="uiContent"> </div>
     <div id="labelsContent" class="hidden"> </div>
-    <div id="trackManagement">
+    <div id="trackManagement" hidden>
         <button id="createShapeButton" class="regular h2" style="width: 80%;"> Create Shape </button>
         <button id="mergeTracksButton" class="regular h2" style="width: 80%; margin-top: 5px;"> Merge Shapes </button>
         <button id="groupShapesButton" class="regular h2" style="width: 80%; margin-top: 5px;"> Group Shapes </button>

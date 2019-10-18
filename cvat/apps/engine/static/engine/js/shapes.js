@@ -1930,7 +1930,6 @@ class ShapeView extends Listener {
             if (changeLabelBlock) {
                 UI.appendChild(changeLabelBlock);
             }
-
             if (attributesBlock) {
                 UI.appendChild(attributesBlock);
             }
@@ -1946,11 +1945,10 @@ class ShapeView extends Listener {
             let title = document.createElement('div');
 
             let titleText = document.createElement('label');
-            titleText.innerText = `${label} ${id} ` +
-                `[${type.split('_')[1]}, ${type.split('_')[0]}]`;
+            titleText.innerText = `#${id}`;
             title.appendChild(titleText);
             title.classList.add('bold');
-            title.style.marginRight = '32px';
+            title.style.marginRight = '8px';
 
             let deleteButton = document.createElement('a');
             deleteButton.classList.add('close');
@@ -2004,7 +2002,6 @@ class ShapeView extends Listener {
                 annotationCenter.appendChild(copyButton);
                 annotationCenter.appendChild(propagateButton);
                 annotationCenter.appendChild(hiddenButton);
-                buttonBlock.appendChild(annotationCenter);
 
                 this._uis.buttons['lock'] = lockButton;
                 this._uis.buttons['occlude'] = occludedButton;
@@ -2014,7 +2011,7 @@ class ShapeView extends Listener {
             }
 
             if (type.split('_')[0] == 'interpolation') {
-                let interpolationCenter = document.createElement('center');
+                let interpolationCenter = document.createElement('div');
 
                 let outsideButton = document.createElement('button');
                 outsideButton.classList.add('graphicButton', 'outsideButton');
@@ -2023,7 +2020,6 @@ class ShapeView extends Listener {
                 keyframeButton.classList.add('graphicButton', 'keyFrameButton');
 
                 interpolationCenter.appendChild(outsideButton);
-                interpolationCenter.appendChild(keyframeButton);
 
                 this._uis.buttons['outside'] = outsideButton;
                 this._uis.buttons['keyframe'] = keyframeButton;
@@ -2041,9 +2037,6 @@ class ShapeView extends Listener {
                 nextKeyFrameButton.setAttribute('title', `
                     ${shortkeys['next_key_frame'].view_value} - ${shortkeys['next_key_frame'].description}`);
 
-                interpolationCenter.appendChild(prevKeyFrameButton);
-                interpolationCenter.appendChild(initKeyFrameButton);
-                interpolationCenter.appendChild(nextKeyFrameButton);
                 buttonBlock.appendChild(interpolationCenter);
 
                 this._uis.buttons['prevKeyFrame'] = prevKeyFrameButton;
@@ -2094,7 +2087,7 @@ class ShapeView extends Listener {
                 htmlLabel.classList.add('semiBold');
                 htmlLabel.innerHTML = 'Attributes <br>';
 
-                block.appendChild(htmlLabel);
+                // block.appendChild(htmlLabel);
 
                 // Make it beaturiful. Group attributes by type:
                 let attrByType = {};

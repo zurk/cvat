@@ -1145,8 +1145,14 @@ class ShapeCollectionView {
         this._scale = 1;
         this._rotation = 0;
         this._colorSettings = {
-            "fill-opacity": 0
+            "fill-opacity": 0.3,
+            "color-by-label": true,
+            "color-by-group": false,
+            "colors-by-label" : this._controller.colorsByGroup.bind(this._controller),
         };
+        for (let view of this._currentViews) {
+                view.updateColorSettings(this._colorSettings);
+            }
 
         this._showAllInterpolationBox.on('change', (e) => {
             this._controller.setShowAllInterpolation(e.target.checked);
