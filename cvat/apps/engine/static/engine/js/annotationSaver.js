@@ -387,12 +387,12 @@ class AnnotationSaverView {
     onAnnotationSaverUpdate(state) {
         if (state.status === 'saveStart') {
             this._overlay = showOverlay('Annotations are being saved..');
-            this._saveButton.prop('disabled', true).text('Saving..');
+            this._saveButton.prop('disabled', true).text('Сохранение..');
         } else if (state.status === 'saveDone') {
-            this._saveButton.text('Successful save');
+            this._saveButton.text('Успешно!');
             this._overlay.remove();
         } else if (state.status === 'saveError') {
-            this._saveButton.prop('disabled', false).text('Save Work');
+            this._saveButton.prop('disabled', false).text('Сохранить');
             const message = `Couldn't to save the job. Errors occured: ${state.message}. `
                 + 'Please report the problem to support team immediately.';
             showMessage(message);
@@ -404,7 +404,7 @@ class AnnotationSaverView {
         } else if (state.status === 'saveDeleted') {
             this._overlay.setMessage(`${this._overlay.getMessage()} <br /> - Deleted objects are being saved..`);
         } else if (state.status === 'saveUnlocked') {
-            this._saveButton.prop('disabled', false).text('Save Work');
+            this._saveButton.prop('disabled', false).text('Сохранить');
         } else {
             const message = `Unknown state has been reached during annotation saving: ${state.status} `
                 + 'Please report the problem to support team immediately.';

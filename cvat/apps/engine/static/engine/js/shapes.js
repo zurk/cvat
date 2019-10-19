@@ -1966,19 +1966,19 @@ class ShapeView extends Listener {
             let buttonBlock = document.createElement('div');
             buttonBlock.appendChild(document.createElement('hr'));
 
-            if (!outside) {
-                let annotationCenter = document.createElement('center');
-
-                let lockButton = document.createElement('button');
+            let lockButton = document.createElement('button');
                 lockButton.classList.add('graphicButton', 'lockButton');
                 lockButton.setAttribute('title', `
                     ${shortkeys['switch_lock_property'].view_value} - ${shortkeys['switch_lock_property'].description}` + `\n` +
                     `${shortkeys['switch_all_lock_property'].view_value} - ${shortkeys['switch_all_lock_property'].description}`);
 
-                let occludedButton = document.createElement('button');
-                occludedButton.classList.add('graphicButton', 'occludedButton');
-                occludedButton.setAttribute('title', `
-                    ${shortkeys['switch_occluded_property'].view_value} - ${shortkeys['switch_occluded_property'].description}`);
+            let occludedButton = document.createElement('button');
+            occludedButton.classList.add('graphicButton', 'occludedButton');
+            occludedButton.setAttribute('title', `
+                ${shortkeys['switch_occluded_property'].view_value} - ${shortkeys['switch_occluded_property'].description}`);
+
+            if (!outside) {
+                let annotationCenter = document.createElement('center');
 
                 let copyButton = document.createElement('button');
                 copyButton.classList.add('graphicButton', 'copyButton');
@@ -2019,7 +2019,9 @@ class ShapeView extends Listener {
                 let keyframeButton = document.createElement('button');
                 keyframeButton.classList.add('graphicButton', 'keyFrameButton');
 
+                interpolationCenter.appendChild(occludedButton);
                 interpolationCenter.appendChild(outsideButton);
+                interpolationCenter.appendChild(lockButton);
 
                 this._uis.buttons['outside'] = outsideButton;
                 this._uis.buttons['keyframe'] = keyframeButton;
@@ -2054,7 +2056,7 @@ class ShapeView extends Listener {
 
                 let htmlLabel = document.createElement('label');
                 htmlLabel.classList.add('semiBold');
-                htmlLabel.innerText = 'Label: ';
+                htmlLabel.innerText = 'Человек: ';
 
                 let select = document.createElement('select');
                 select.classList.add('regular');
