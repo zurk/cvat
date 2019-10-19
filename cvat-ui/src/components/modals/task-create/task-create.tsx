@@ -241,7 +241,7 @@ class TaskCreateForm extends PureComponent<any, any> {
         <Form.Item { ...formItemLayout } label="Image quality">
           {getFieldDecorator('imageQuality', {
             rules: [{ required: true }],
-            initialValue: 50,
+            initialValue: 95,
           })(
             <InputNumber
               min={1}
