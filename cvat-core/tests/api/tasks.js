@@ -160,7 +160,7 @@ describe('Feature: save a task', () => {
                 }],
             }],
             bug_tracker: 'bug tracker value',
-            image_quality: 95,
+            image_quality: 50,
             z_order: true,
         });
 
