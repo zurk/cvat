@@ -1977,6 +1977,12 @@ class ShapeView extends Listener {
             occludedButton.setAttribute('title', `
                 ${shortkeys['switch_occluded_property'].view_value} - ${shortkeys['switch_occluded_property'].description}`);
 
+            let hiddenButton = document.createElement('button');
+                hiddenButton.classList.add('graphicButton', 'hiddenButton');
+                hiddenButton.setAttribute('title', `
+                    ${shortkeys['switch_hide_mode'].view_value} - ${shortkeys['switch_hide_mode'].description}` + `\n` +
+                    `${shortkeys['switch_all_hide_mode'].view_value} - ${shortkeys['switch_all_hide_mode'].description}`);
+
             if (!outside) {
                 let annotationCenter = document.createElement('center');
 
@@ -1991,11 +1997,7 @@ class ShapeView extends Listener {
                 propagateButton.setAttribute('title', `
                     ${shortkeys['propagate_shape'].view_value} - ${shortkeys['propagate_shape'].description}`);
 
-                let hiddenButton = document.createElement('button');
-                hiddenButton.classList.add('graphicButton', 'hiddenButton');
-                hiddenButton.setAttribute('title', `
-                    ${shortkeys['switch_hide_mode'].view_value} - ${shortkeys['switch_hide_mode'].description}` + `\n` +
-                    `${shortkeys['switch_all_hide_mode'].view_value} - ${shortkeys['switch_all_hide_mode'].description}`);
+
 
                 annotationCenter.appendChild(lockButton);
                 annotationCenter.appendChild(occludedButton);
@@ -2023,6 +2025,7 @@ class ShapeView extends Listener {
                 interpolationCenter.appendChild(outsideButton);
                 interpolationCenter.appendChild(lockButton);
                 interpolationCenter.appendChild(keyframeButton);
+                interpolationCenter.appendChild(hiddenButton);
 
                 this._uis.buttons['outside'] = outsideButton;
                 this._uis.buttons['keyframe'] = keyframeButton;
