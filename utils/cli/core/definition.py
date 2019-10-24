@@ -15,7 +15,7 @@ def get_auth(s):
     return user, password
 
 
-def parse_label_arg(s):
+def parse_json_arg(s):
     """ If s is a file load it as JSON, otherwise parse s as JSON."""
     if os.path.exists(s):
         fp = open(s, 'r')
@@ -88,6 +88,59 @@ parser.add_argument(
 )
 
 #######################################################################
+# Massive Create
+#######################################################################
+
+mass_task_create_parser = task_subparser.add_parser(
+    'mass_create',
+    description='Create a lot of same CVAT task.'
+)
+mass_task_create_parser.add_argument(
+    '--labels',
+    default='[]',
+    type=parse_json_arg,
+    help='string or file containing JSON labels specification'
+)
+mass_task_create_parser.add_argument(
+    '--bug',
+    default='',
+    type=str,
+    help='bug tracker URL'
+)
+mass_task_create_parser.add_argument(
+    '--image-quality',
+    default=50,
+    type=int,
+    help='Quality of images prerendered on server'
+)
+mass_task_create_parser.add_argument(
+    '--frame-filter',
+    default='',
+    type=str,
+    help='use --frame_filter step=K to use each K-th frame from video'
+)
+mass_task_create_parser.add_argument(
+    '--duplicate-existing',
+    action="store_false",
+    default=True,
+    help='Skips tasks with existsing name. if false create a new one with the same name',
+)
+mass_task_create_parser.add_argument(
+    'resource_type',
+    default='local',
+    choices=list(ResourceType),
+    type=ResourceType.argparse,
+    help='type of files specified'
+)
+mass_task_create_parser.add_argument(
+    'resources',
+    type=parse_json_arg,
+    help='JSON string or file with files you want to submit as tasks.\n'
+         'Expected JSON format: list of strings.',
+)
+
+
+#######################################################################
 # Create
 #######################################################################
 
@@ -103,7 +156,7 @@ task_create_parser.add_argument(
 task_create_parser.add_argument(
     '--labels',
     default='[]',
-    type=parse_label_arg,
+    type=parse_json_arg,
     help='string or file containing JSON labels specification'
 )
 task_create_parser.add_argument(
@@ -111,6 +164,18 @@ task_create_parser.add_argument(
     default='',
     type=str,
     help='bug tracker URL'
+)
+task_create_parser.add_argument(
+    '--image-quality',
+    default=50,
+    type=int,
+    help='Quality of images prerendered on server'
+)
+task_create_parser.add_argument(
+    '--frame-filter',
+    default='',
+    type=str,
+    help='use --frame_filter step=K to use each K-th frame from video'
 )
 task_create_parser.add_argument(
     'resource_type',
@@ -207,4 +272,38 @@ dump_parser.add_argument(
     type=str,
     default='CVAT XML 1.1 for images',
     help='annotation format (default: %(default)s)'
+)
+
+#######################################################################
+# Mass Dump
+#######################################################################
+
+mass_dump_parser = task_subparser.add_parser(
+    'mass_dump',
+    description='Download annotations for a CVAT task.'
+)
+mass_dump_parser.add_argument(
+    '--filename-template',
+    type=str,
+    help='output filename template. Example "./annotations/{name}_{id}.json" where'
+         '{name} is task name and {id} is task id. "annotations" diirectory will be created if it does not exist.'
+)
+mass_dump_parser.add_argument(
+    'tasks_id',
+    type=int,
+    nargs='+',
+    help='tasks ID'
+)
+mass_dump_parser.add_argument(
+    '--format',
+    dest='fileformat',
+    type=str,
+    default='CVAT XML 1.1 for images',
+    help='annotation format (default: %(default)s)'
+)
+mass_dump_parser.add_argument(
+    '--force',
+    default=False,
+    action="store_true",
+    help='Overwrite file if exists'
 )

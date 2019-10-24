@@ -23,7 +23,10 @@ def main():
                'delete': CLI.tasks_delete,
                'ls': CLI.tasks_list,
                'frames': CLI.tasks_frame,
-               'dump': CLI.tasks_dump}
+               'dump': CLI.tasks_dump,
+               'mass_create': CLI.mass_tasks_create,
+               'mass_dump': CLI.mass_tasks_dump,
+               }
     args = parser.parse_args()
     config_log(args.loglevel)
     with requests.Session() as session:
