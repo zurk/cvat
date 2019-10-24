@@ -1967,10 +1967,10 @@ class ShapeView extends Listener {
             buttonBlock.appendChild(document.createElement('hr'));
 
             let lockButton = document.createElement('button');
-                lockButton.classList.add('graphicButton', 'lockButton');
-                lockButton.setAttribute('title', `
-                    ${shortkeys['switch_lock_property'].view_value} - ${shortkeys['switch_lock_property'].description}` + `\n` +
-                    `${shortkeys['switch_all_lock_property'].view_value} - ${shortkeys['switch_all_lock_property'].description}`);
+            lockButton.classList.add('graphicButton', 'lockButton');
+            lockButton.setAttribute('title', `
+                ${shortkeys['switch_lock_property'].view_value} - ${shortkeys['switch_lock_property'].description}` + `\n` +
+                `${shortkeys['switch_all_lock_property'].view_value} - ${shortkeys['switch_all_lock_property'].description}`);
 
             let occludedButton = document.createElement('button');
             occludedButton.classList.add('graphicButton', 'occludedButton');
@@ -2022,6 +2022,7 @@ class ShapeView extends Listener {
                 interpolationCenter.appendChild(occludedButton);
                 interpolationCenter.appendChild(outsideButton);
                 interpolationCenter.appendChild(lockButton);
+                interpolationCenter.appendChild(keyframeButton);
 
                 this._uis.buttons['outside'] = outsideButton;
                 this._uis.buttons['keyframe'] = keyframeButton;
