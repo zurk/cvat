@@ -137,7 +137,9 @@ class CLI():
             if task_id not in task_id_to_name:
                 log.warning(f"No task with id {task_id}. Skipping.")
                 continue
-            dump_filename = Path(filename_template.format(name=task_id_to_name[task_id], id=task_id))
+            name_parts = task_id_to_name[task_id].split("_")[:2]
+            dump_filename = Path(filename_template.format(
+                name_part1=name_parts[0], name_part2=name_parts[1], name=task_id_to_name[task_id], id=task_id))
             if dump_filename.exists() and not force:
                 log.warning(f"File {dump_filename} exists, skipping dump task with id {task_id}.")
                 continue
