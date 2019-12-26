@@ -2060,7 +2060,7 @@ class ShapeView extends Listener {
 
                 let htmlLabel = document.createElement('label');
                 htmlLabel.classList.add('semiBold');
-                htmlLabel.innerText = 'Человек: ';
+                htmlLabel.innerText = 'Номер: ';
 
                 let select = document.createElement('select');
                 select.classList.add('regular');
