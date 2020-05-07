@@ -3,6 +3,7 @@ import json
 import logging
 import os
 from pathlib import Path
+from time import sleep
 
 import requests
 from io import BytesIO
@@ -35,6 +36,7 @@ class CLI():
         """ List all tasks in either basic or JSON format. """
         tasks = self._get_tasks_list()
         log.info('jobs_id\tproject id\tname')
+        tasks = sorted(tasks, key=lambda x: x["id"])
         for t in tasks:
             jobs_id = [job["id"] for segment in t["segments"] for job in segment["jobs"]]
             if use_json_output:
@@ -75,14 +77,14 @@ class CLI():
         for resource in resources:
             resource_path = Path(resource)
             resource_name = resource_path.stem
-            if resource_path.suffix != ".avi":
-                log.warning(f"Not avi file in resources ({resource_name}). Skipping")
+            if resource_path.suffix not in {".mp4", ".MOV"}:
+                log.warning(f"Not mp4 or MOV file in resources ({resource_name}). Skipping")
                 continue
             if resource_name in existing_tasks:
                 log.info(f"task {resource_name} already exists. Skipping.")
                 continue
             data = common_data.copy()
-            data["name"] = "delme__"+ resource_name
+            data["name"] = resource_name
             data["resources"] = [resource]
             self.tasks_create(**data)
 
@@ -100,9 +102,8 @@ class CLI():
         response.raise_for_status()
         response_json = response.json()
         log.info('Created task ID: {id} NAME: {name}'.format(**response_json))
-        log.info(str(response.json()))
         self.tasks_data(response_json['id'], resource_type, resources)
-
+        return response_json['id']
 
     def tasks_delete(self, task_ids, **kwargs):
         """ Delete a list of tasks, ignoring those which don't exist. """
@@ -129,7 +130,7 @@ class CLI():
             outfile = 'task_{}_frame_{:06d}.jpg'.format(task_id, frame_id)
             im.save(os.path.join(outdir, outfile))
 
-    def mass_tasks_dump(self, tasks_id, fileformat, filename_template, force, **kwargs):
+    def mass_tasks_dump(self, tasks_id, fileformat, filename_template, force, separator, **kwargs):
         log.info("Fetching tasks data...")
         tasks = self._get_tasks_list()
         task_id_to_name = {task["id"]: task["name"] for task in tasks}
@@ -137,7 +138,7 @@ class CLI():
             if task_id not in task_id_to_name:
                 log.warning(f"No task with id {task_id}. Skipping.")
                 continue
-            name_parts = task_id_to_name[task_id].split("_")[:2]
+            name_parts = task_id_to_name[task_id].split(separator)[:2]
             dump_filename = Path(filename_template.format(
                 name_part1=name_parts[0], name_part2=name_parts[1], name=task_id_to_name[task_id], id=task_id))
             if dump_filename.exists() and not force:

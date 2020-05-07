@@ -16,10 +16,14 @@ def get_auth(s):
 
 
 def parse_json_arg(s):
-    """ If s is a file load it as JSON, otherwise parse s as JSON."""
+    """ If s is a file load it as JSON if failed try to read by lines, otherwise parse s as JSON."""
     if os.path.exists(s):
-        fp = open(s, 'r')
-        return json.load(fp)
+        try:
+            with open(s, 'r') as fp:
+                return json.load(fp)
+        except Exception:
+            with open(s, 'r') as fp:
+                return [line.strip() for line in fp]
     else:
         return json.loads(s)
 
@@ -306,4 +310,10 @@ mass_dump_parser.add_argument(
     default=False,
     action="store_true",
     help='Overwrite file if exists'
+)
+mass_dump_parser.add_argument(
+    '--separator',
+    default="_",
+    type=str,
+    help='Separate name to parts by specified sequence of characters'
 )
