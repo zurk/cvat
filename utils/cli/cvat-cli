@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+python3 cli.py --auth $(cat cvat_credits) --server-host annotation.infraforecast.info --server-port 80 $@

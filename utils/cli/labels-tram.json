@@ -1,0 +1,386 @@
+[
+  {
+    "name": "1",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "2",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "3",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "4",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "5",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "6",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "7",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "8",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "9",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "10",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "11",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "12",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "13",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "14",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "15",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "16",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "17",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "18",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "19",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "20",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "21",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "22",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "23",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "24",
+    "attributes": [
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "radio",
+        "default_value": "",
+        "values": [
+          "",
+          "in",
+          "out"
+        ]
+      }
+    ]
+  }
+]
